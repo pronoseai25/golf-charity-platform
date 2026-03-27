@@ -53,18 +53,14 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <>
-        <Navbar />
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-10 h-10 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
-        </div>
-      </>
+      <div className="flex-1 flex items-center justify-center">
+        <div className="w-10 h-10 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
+      </div>
     );
   }
 
   return (
     <>
-      <Navbar />
       <main className="flex-1 px-6 py-12 page-enter">
         <div className="max-w-4xl mx-auto">
 

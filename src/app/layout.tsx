@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from '@/components/Navbar';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col relative">
+      <body className="min-h-full flex flex-col relative text-white">
         {/* Animated background orbs */}
         <div className="bg-orbs">
           <div className="orb orb-green" />
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="orb orb-purple" />
         </div>
         <div className="relative z-10 flex flex-col min-h-screen">
+          <Navbar />
           {children}
         </div>
       </body>

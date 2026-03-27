@@ -43,6 +43,10 @@ export default function Navbar() {
                 className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
                 Scores
               </Link>
+              <Link href="/charities"
+                className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
+                Charities
+              </Link>
               <Link href="/pricing"
                 className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
                 Plans
@@ -56,6 +60,10 @@ export default function Navbar() {
             </>
           ) : (
             <>
+              <Link href="/charities"
+                className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
+                Charities
+              </Link>
               <Link href="/pricing"
                 className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
                 Pricing

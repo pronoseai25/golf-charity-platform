@@ -79,7 +79,6 @@ export default function PricingPage() {
 
   return (
     <>
-      <Navbar />
       <main className="flex-1 px-6 py-20 page-enter">
         <div className="max-w-4xl mx-auto">
           {/* Mock Mode Warning */}

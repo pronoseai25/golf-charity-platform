@@ -1,10 +1,8 @@
-import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main className="flex-1 page-enter">
         {/* Hero */}
         <section className="max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
