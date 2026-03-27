@@ -39,6 +39,12 @@ export default function Navbar() {
                 className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
                 Dashboard
               </Link>
+              {user.role === 'ADMIN' && (
+                <Link href="/admin/draws"
+                  className="text-sm text-amber-400 hover:text-amber-300 transition-colors px-3 py-2 rounded-lg hover:bg-white/5 font-bold">
+                  Admin Draws
+                </Link>
+              )}
               <Link href="/dashboard/scores"
                 className="text-sm text-gray-300 hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-white/5">
                 Scores

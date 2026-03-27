@@ -83,3 +83,70 @@ export interface ApiResponse<T = any> {
   error?: string;
   message?: string;
 }
+
+export type DrawMode = 'random' | 'weighted_common' | 'weighted_rare';
+export type DrawStatus = 'draft' | 'simulated' | 'published';
+export type PaymentStatus = 'unpaid' | 'pending' | 'paid';
+
+export interface Draw {
+  id: string;
+  draw_date: string;
+  drawn_numbers: number[];
+  draw_mode: DrawMode;
+  status: DrawStatus;
+  total_prize_pool_pence: number;
+  jackpot_pool_pence: number;
+  tier2_pool_pence: number;
+  tier3_pool_pence: number;
+  jackpot_carried_over: boolean;
+  carried_over_amount_pence: number;
+  created_by: string;
+  published_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface DrawEntry {
+  id: string;
+  draw_id: string;
+  user_id: string;
+  scores_snapshot: number[];
+  matched_numbers: number[];
+  match_count: number;
+  prize_amount_pence: number;
+  payment_status: PaymentStatus;
+  created_at: string;
+  updated_at: string;
+  user?: User;
+}
+
+export interface JackpotRollover {
+  id: string;
+  from_draw_id: string;
+  to_draw_id: string | null;
+  amount_pence: number;
+  created_at: string;
+}
+
+export interface DrawSimulationResult {
+  draw_id: string;
+  drawn_numbers: number[];
+  draw_mode: DrawMode;
+  total_prize_pool_pence: number;
+  jackpot_pool_pence: number;
+  tier2_pool_pence: number;
+  tier3_pool_pence: number;
+  carried_over_amount_pence: number;
+  winner_counts: {
+    tier1: number;
+    tier2: number;
+    tier3: number;
+  };
+  total_eligible_users: number;
+  top_winners: {
+    user_id: string;
+    name: string;
+    match_count: number;
+    prize_amount_pence: number;
+  }[];
+}
