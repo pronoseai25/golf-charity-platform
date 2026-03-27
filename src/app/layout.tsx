@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col relative text-white">
+      <body className="min-h-full flex flex-col relative text-white bg-[#0a0f1e]">
         {/* Animated background orbs */}
         <div className="bg-orbs">
           <div className="orb orb-green" />
@@ -21,7 +21,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div className="orb orb-purple" />
         </div>
         <div className="relative z-10 flex flex-col min-h-screen">
-          <Navbar />
           {children}
         </div>
       </body>

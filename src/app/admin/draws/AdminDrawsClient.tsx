@@ -17,6 +17,13 @@ import {
   Dice5
 } from 'lucide-react';
 import { Draw, DrawMode, DrawSimulationResult } from '@/types';
+import { cn } from '@/lib/utils';
+
+const MODE_LABELS: Record<DrawMode, string> = {
+  'random': 'Pure Random',
+  'weighted_common': 'Market Hot',
+  'weighted_rare': 'Market Cold'
+};
 
 interface AdminDrawsClientProps {
   initialDraws: Draw[];
@@ -200,7 +207,7 @@ export default function AdminDrawsClient({ initialDraws }: AdminDrawsClientProps
                               : 'bg-zinc-950 border-zinc-900 text-zinc-600 hover:border-zinc-800'
                           }`}
                         >
-                          {mode.replace('_', ' ').toUpperCase()}
+                          {MODE_LABELS[mode]}
                         </button>
                       ))}
                     </div>
@@ -377,7 +384,7 @@ export default function AdminDrawsClient({ initialDraws }: AdminDrawsClientProps
                                   <div className="space-y-1">
                                     <p className="text-xs font-black text-zinc-500 uppercase tracking-widest">{draw.draw_date}</p>
                                     <div className="flex items-center gap-3">
-                                      <h4 className="text-xl font-black text-white uppercase">{draw.draw_mode.replace('_', ' ')}</h4>
+                                      <h4 className="text-xl font-black text-white uppercase">{MODE_LABELS[draw.draw_mode]}</h4>
                                       <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-500 text-[10px] font-black rounded uppercase">Published</span>
                                     </div>
                                   </div>

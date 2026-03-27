@@ -21,9 +21,9 @@ import { DrawMode, DrawSimulationResult } from "@/types";
 import { cn } from "@/lib/utils";
 
 const modes: { id: DrawMode; label: string; desc: string; icon: any }[] = [
-  { id: 'random', label: 'True Random', desc: 'Standard uniform distribution across 1-45.', icon: Sparkles },
-  { id: 'weighted_common', label: 'Market Hot', desc: 'Weights towards most commonly played numbers.', icon: TrendingUp },
-  { id: 'weighted_rare', label: 'Market Cold', desc: 'Weights towards rarely played/overdue numbers.', icon: Sparkles },
+  { id: 'random', label: 'Pure Random', desc: 'Standard uniform distribution across 1-45. Every number has an equal chance.', icon: Sparkles },
+  { id: 'weighted_common', label: 'Market Hot', desc: 'Biased towards the most frequently played numbers in the current pool.', icon: TrendingUp },
+  { id: 'weighted_rare', label: 'Market Cold', desc: 'Biased towards numbers rarely played or overdue for a win.', icon: Sparkles },
 ];
 
 export function DrawSimulator() {
@@ -121,7 +121,7 @@ export function DrawSimulator() {
                                 drawMode === mode.id ? "bg-white text-indigo-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"
                              )}
                            >
-                              {mode.label.split(' ')[0]}
+                              {mode.label}
                            </button>
                         ))}
                      </div>
