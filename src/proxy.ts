@@ -59,6 +59,7 @@ export default async function proxy(request: NextRequest) {
 
   const isApiRoute = request.nextUrl.pathname.startsWith('/api/');
   logger.info(`Proxy: ${request.method} ${request.nextUrl.pathname}`, { hasUser: !!user });
+  
   const protectedRoutes = [
     '/dashboard',
     '/api/auth/me',
@@ -67,10 +68,35 @@ export default async function proxy(request: NextRequest) {
     '/api/subscriptions'
   ];
 
-  const isProtectedPath = protectedRoutes.some(path => 
-    request.nextUrl.pathname.startsWith(path)
-  );
+  const adminRoutes = [
+    '/admin',
+    '/api/admin'
+  ];
 
+  const isAdminPath = adminRoutes.some(path => request.nextUrl.pathname.startsWith(path));
+  const isProtectedPath = protectedRoutes.some(path => request.nextUrl.pathname.startsWith(path));
+
+  // Admin Protection
+  if (isAdminPath) {
+    if (!user) {
+      if (isApiRoute) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.redirect(new URL('/auth/login', request.url));
+    }
+
+    // Role check logic
+    const { data: userData } = await supabase
+      .from('users')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (userData?.role !== 'ADMIN') {
+      if (isApiRoute) return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+  }
+
+  // General Protection
   if (!user && isProtectedPath) {
     if (isApiRoute) {
       return NextResponse.json(

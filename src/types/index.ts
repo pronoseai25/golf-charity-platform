@@ -150,3 +150,24 @@ export interface DrawSimulationResult {
     prize_amount_pence: number;
   }[];
 }
+
+export type VerificationStatus = 'awaiting_proof' | 'proof_submitted' | 'approved' | 'rejected' | 'paid';
+
+export interface WinnerVerification {
+  id: string;
+  draw_entry_id: string;
+  user_id: string;
+  proof_url: string | null;
+  proof_uploaded_at: string | null;
+  status: VerificationStatus;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  rejection_reason: string | null;
+  payout_reference: string | null;
+  paid_at: string | null;
+  created_at: string;
+  updated_at: string;
+  draw_entry?: DrawEntry;
+  draw?: Draw;
+  user?: User;
+}
