@@ -56,9 +56,9 @@ export async function POST(request: Request) {
               plan_id: planId,
               stripe_subscription_id,
               status: 'active',
-              // Use invoice period dates — the canonical source of truth in new SDK
-              current_period_start: new Date((latestInvoice?.period_start ?? Date.now() / 1000) * 1000).toISOString(),
-              current_period_end: new Date((latestInvoice?.period_end ?? Date.now() / 1000) * 1000).toISOString(),
+              // Use subscription period dates, as latest_invoice might not be available immediately
+              current_period_start: new Date(((subscription as any).current_period_start || Date.now() / 1000) * 1000).toISOString(),
+              current_period_end: new Date(((subscription as any).current_period_end || Date.now() / 1000) * 1000).toISOString(),
             });
 
           logger.info('Subscription created via checkout', { userId, stripe_subscription_id });

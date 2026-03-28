@@ -105,7 +105,7 @@ export default function SubscriptionBanner({
                     </div>
                     <div className="min-w-0 flex-1">
                         <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1 leading-none italic group-hover/item:text-slate-500">Tier Status</p>
-                        <p className="text-xl font-serif italic text-slate-900 tracking-tighter truncate">Elite Monthly</p>
+                        <p className="text-xl font-serif italic text-slate-900 tracking-tighter truncate">{subscription?.subscription_plans?.name || 'Elite Plan'}</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-6 bg-slate-50/50 border border-slate-100 rounded-3xl px-6 py-6 shadow-sm hover:bg-white hover:border-slate-200 transition-all group/item">
