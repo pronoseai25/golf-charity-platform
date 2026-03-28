@@ -130,7 +130,7 @@ export default function UsersManagementPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-sm relative overflow-x-auto no-scrollbar">
+      <div className="w-full bg-white border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-sm relative overflow-x-auto no-scrollbar">
          <div className="min-w-[800px]">
          {loading ? (
             <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10 flex items-center justify-center min-h-[400px]">

@@ -205,9 +205,9 @@ export function DrawSimulator() {
 
       {/* Drill-down simulated distribution */}
       {simulation && (
-         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in slide-in-from-bottom-8 duration-700">
-            <div className="lg:col-span-1 bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm overflow-hidden flex flex-col justify-between">
-               <h4 className="text-xl font-black text-slate-900 mb-8 uppercase tracking-tight">Tier Distribution</h4>
+         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 animate-in slide-in-from-bottom-8 duration-700">
+            <div className="lg:col-span-1 bg-white border border-slate-200 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 shadow-sm overflow-hidden flex flex-col justify-between">
+               <h4 className="text-xl font-black text-slate-900 mb-6 sm:mb-8 uppercase tracking-tight">Tier Distribution</h4>
                <div className="space-y-6">
                   {[
                     { label: 'Tier 1 (Jackpot)', count: simulation.winner_counts?.tier1, pool: simulation.jackpot_pool_pence, color: 'text-amber-500 bg-amber-50' },
@@ -216,36 +216,36 @@ export function DrawSimulator() {
                   ].map((tier, i) => (
                     <div key={i} className="flex items-center justify-between gap-4">
                        <div className="flex items-center gap-3">
-                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-black text-lg", tier.color)}>
+                          <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center font-black text-lg shrink-0", tier.color)}>
                              {i + 1}
                           </div>
                           <div>
                              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">{tier.label}</p>
-                             <p className="text-base font-black text-slate-900 leading-none">{tier.count} Winners</p>
+                             <p className="text-sm sm:text-base font-black text-slate-900 leading-none">{tier.count} Winners</p>
                           </div>
                        </div>
                        <div className="text-right">
                           <p className="text-xs font-black text-slate-900 leading-none">${(tier.pool / 100).toLocaleString()}</p>
-                          <p className="text-[9px] font-bold text-slate-400 uppercase">Pool Weight</p>
+                          <p className="text-[9px] font-bold text-slate-400 uppercase hidden sm:block">Pool Weight</p>
                        </div>
                     </div>
                   ))}
                </div>
-               <div className="mt-10 p-5 bg-slate-900 rounded-3xl text-white">
+               <div className="mt-8 sm:mt-10 p-4 sm:p-5 bg-slate-900 rounded-2xl sm:rounded-3xl text-white">
                   <div className="flex items-center justify-between">
                      <div className="flex items-center gap-2">
                         <Users size={16} className="text-indigo-400" />
-                        <span className="text-[10px] font-black text-slate-500 uppercase">Total Pool Potential</span>
+                        <span className="text-[10px] sm:text-xs font-black text-slate-500 uppercase">Total Pool</span>
                      </div>
-                     <span className="text-xl font-black">${(simulation.total_prize_pool_pence / 100).toLocaleString()}</span>
+                     <span className="text-lg sm:text-xl font-black">${(simulation.total_prize_pool_pence / 100).toLocaleString()}</span>
                   </div>
                </div>
             </div>
 
-            <div className="lg:col-span-2 bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm overflow-hidden">
-               <div className="flex items-center justify-between mb-8">
+            <div className="lg:col-span-2 bg-white border border-slate-200 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 shadow-sm overflow-hidden">
+               <div className="flex items-center justify-between mb-6 sm:mb-8">
                   <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight">Top Outcome Winners</h4>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Sample List Preview</p>
+                  <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest hidden sm:block">Sample List Preview</p>
                </div>
                
                <div className="space-y-3">

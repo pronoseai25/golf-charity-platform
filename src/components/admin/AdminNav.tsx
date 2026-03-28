@@ -83,9 +83,17 @@ export function AdminNav({ onNavClick }: AdminNavProps) {
 }
 
 export function AdminSidebarFoot() {
+  const handleSignOut = async () => {
+     await fetch('/api/auth/signout', { method: 'POST' });
+     window.location.href = '/';
+  };
+
   return (
     <div className="pt-6 border-t border-white/5 group">
-      <button className="flex items-center gap-4 w-full px-6 py-4 text-slate-500 hover:text-white hover:bg-white/5 rounded-[2rem] transition-all duration-500 border border-transparent hover:border-white/5 group">
+      <button 
+        onClick={handleSignOut}
+        className="flex items-center gap-4 w-full px-6 py-4 text-slate-500 hover:text-white hover:bg-white/5 rounded-[2rem] transition-all duration-500 border border-transparent hover:border-white/5 group"
+      >
         <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-500 group-hover:text-white group-hover:rotate-12 transition-all duration-500">
            <LogOut size={18} />
         </div>

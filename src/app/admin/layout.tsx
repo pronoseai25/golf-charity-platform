@@ -74,7 +74,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col min-h-screen lg:ml-[260px] relative z-10">
+      <main className="flex-1 flex flex-col min-h-screen lg:ml-[260px] relative z-10 min-w-0">
         {/* Mobile Top Bar */}
         <div className="lg:hidden flex items-center gap-3 px-4 py-3 bg-[#050810] border-b border-white/5 sticky top-0 z-30">
           <button
@@ -90,7 +90,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         </div>
 
         {/* Page Content */}
-        <div className="flex-1 p-4 sm:p-6 lg:p-10 w-full max-w-[1700px] mx-auto animate-in fade-in slide-in-from-bottom-3 duration-700">
+        <div className="flex-1 p-4 sm:p-6 lg:p-10 w-full max-w-[1700px] mx-auto animate-in fade-in slide-in-from-bottom-3 duration-700 min-w-0 overflow-x-hidden">
           {children}
         </div>
       </main>
