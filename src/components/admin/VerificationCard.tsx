@@ -69,17 +69,17 @@ export function VerificationCard({ verification, onAction }: VerificationCardPro
     <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
       <div className="p-6">
         {/* Header: Status & Price */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col xs:flex-row xs:items-center justify-between gap-4 mb-6">
           <div className={cn(
-            "flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold border capitalize",
+            "flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold border capitalize w-fit",
             statusColors[verification.status]
           )}>
             <StatusIcon size={14} />
             {verification.status.replace('_', ' ')}
           </div>
-          <div className="text-right">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block mb-1">Prize Amount</span>
-            <span className="text-2xl font-black text-slate-900">${prizeInPounds.toLocaleString()}</span>
+          <div className="text-left xs:text-right">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-1 italic">Prize Weight</span>
+            <span className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">${prizeInPounds.toLocaleString()}</span>
           </div>
         </div>
 

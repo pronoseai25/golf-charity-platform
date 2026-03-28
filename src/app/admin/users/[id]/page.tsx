@@ -94,50 +94,50 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
   return (
     <div className="space-y-10 pb-20">
       {/* Navigation & Actions */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
          <Link 
             href="/admin/users"
-            className="flex items-center gap-2 text-slate-400 hover:text-slate-900 font-bold group transition-all"
+            className="flex items-center gap-2 text-slate-400 hover:text-slate-900 font-bold group transition-all text-sm sm:text-base"
          >
             <div className="p-2 border border-slate-200 rounded-xl group-hover:bg-slate-50 transition-colors">
                <ArrowLeft size={18} />
             </div>
             Back to Directory
          </Link>
-         <div className="flex items-center gap-3">
-            <div className="px-5 py-3 bg-slate-100 border border-slate-200 rounded-2xl text-[10px] font-black uppercase tracking-widest text-slate-500 flex items-center gap-2">
+         <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="flex-1 sm:flex-none px-5 py-3 bg-slate-100 border border-slate-200 rounded-2xl text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-slate-500 flex items-center justify-center gap-2">
                <Hash size={12} />
                ID: {user.id.split('-')[0]}...
             </div>
          </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
          {/* Left Column: Profile Card */}
-         <div className="lg:col-span-1 space-y-8">
-            <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm relative overflow-hidden group">
+         <div className="lg:col-span-1 space-y-6 sm:space-y-8">
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-10 shadow-sm relative overflow-hidden group">
                <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-50/50 rounded-full blur-[60px] translate-x-10 -translate-y-10 group-hover:scale-110 transition-transform duration-700"></div>
                
                <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="w-24 h-24 rounded-[2rem] bg-indigo-600 text-white flex items-center justify-center text-4xl font-black shadow-xl shadow-indigo-100 mb-6 border-4 border-white">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-[1.5rem] sm:rounded-[2rem] bg-indigo-600 text-white flex items-center justify-center text-3xl sm:text-4xl font-black shadow-xl shadow-indigo-100 mb-6 border-4 border-white">
                      {user.name.charAt(0).toUpperCase()}
                   </div>
-                  <h2 className="text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">{user.name}</h2>
-                  <p className="text-sm text-slate-400 font-bold uppercase tracking-widest mb-6">{user.role}</p>
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">{user.name}</h2>
+                  <p className="text-xs sm:text-sm text-slate-400 font-bold uppercase tracking-widest mb-6">{user.role}</p>
                   
-                  <div className="w-full flex items-center justify-between p-5 bg-slate-50 rounded-3xl border border-slate-100 mb-8">
+                  <div className="w-full flex items-center justify-between p-4 sm:p-5 bg-slate-50 rounded-2xl sm:rounded-3xl border border-slate-100 mb-6 sm:mb-8">
                      <div className="text-left">
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Status</p>
+                        <p className="text-[9px] sm:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Status</p>
                         <p className={cn(
-                           "text-xs font-black uppercase tracking-widest leading-none",
+                           "text-[10px] sm:text-xs font-black uppercase tracking-widest leading-none",
                            activeSub ? "text-green-600" : "text-red-500"
                         )}>
                            {activeSub ? "Subscribed" : "Unpaid"}
                         </p>
                      </div>
                      <div className="text-right">
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Since</p>
-                        <p className="text-xs font-black text-slate-900 leading-none">
+                        <p className="text-[9px] sm:text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Since</p>
+                        <p className="text-[10px] sm:text-xs font-black text-slate-900 leading-none">
                            {format(new Date(user.created_at), 'MM/yyyy')}
                         </p>
                      </div>
@@ -191,7 +191,7 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
                </div>
             </div>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-[3rem] p-10 text-white space-y-8">
+            <div className="bg-slate-900 border border-slate-800 rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-10 text-white space-y-8">
                <div className="flex items-center gap-3">
                   <Activity className="text-indigo-400" size={24} />
                   <h3 className="text-xl font-black tracking-tight leading-none uppercase">Activity Snapshot</h3>
@@ -199,12 +199,12 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
                <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-1">
                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none">Total Participation</p>
-                     <p className="text-3xl font-black">{user.draw_entries?.length || 0}</p>
+                     <p className="text-2xl sm:text-3xl font-black">{user.draw_entries?.length || 0}</p>
                      <p className="text-[9px] font-bold text-slate-500 uppercase">Draw Entries</p>
                   </div>
                   <div className="space-y-1">
                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none">Net Payouts</p>
-                     <p className="text-3xl font-black text-green-400">$0</p>
+                     <p className="text-2xl sm:text-3xl font-black text-green-400">$0</p>
                      <p className="text-[9px] font-bold text-slate-500 uppercase">Pending Verification</p>
                   </div>
                </div>
@@ -212,8 +212,8 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
          </div>
 
          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white border border-slate-200 rounded-[3rem] overflow-hidden shadow-sm flex flex-col h-full min-h-[700px]">
-               <div className="px-8 py-6 bg-slate-50/50 border-b border-slate-50 flex items-center gap-2 overflow-x-auto no-scrollbar">
+            <div className="bg-white border border-slate-200 rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden shadow-sm flex flex-col h-full min-h-[500px] sm:min-h-[700px]">
+               <div className="px-6 sm:px-8 py-4 sm:py-6 bg-slate-50/50 border-b border-slate-50 flex items-center gap-2 overflow-x-auto no-scrollbar">
                   {[
                     { id: 'scores', label: 'Score History', icon: Activity },
                     { id: 'draws', label: 'Draw History', icon: Trophy },
@@ -227,7 +227,7 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
                           key={tab.id}
                           onClick={() => setActiveTab(tab.id as any)}
                           className={cn(
-                            "flex items-center gap-2 px-6 py-4 rounded-2xl text-xs font-black uppercase tracking-widest whitespace-nowrap transition-all",
+                            "flex items-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-widest whitespace-nowrap transition-all",
                             isActive 
                               ? "bg-white text-indigo-600 shadow-sm border border-slate-100" 
                               : "text-slate-400 hover:text-slate-600"
@@ -240,7 +240,7 @@ export default function UserDetailPage({ params }: { params: Promise<{ id: strin
                   })}
                </div>
 
-               <div className="p-10 flex-1">
+               <div className="p-6 sm:p-10 flex-1">
                   {activeTab === 'scores' && (
                      <div className="space-y-6">
                         <div className="flex items-center justify-between mb-4">

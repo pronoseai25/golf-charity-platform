@@ -47,7 +47,7 @@ export default function RecentDrawCard({ draw, loading = false }: RecentDrawCard
   const prizeAmount = myEntry?.prize_amount_pence / 100 || 0;
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-[3rem] p-10 relative overflow-hidden group hover:border-slate-700 transition-all duration-700 shadow-2xl flex flex-col justify-between h-full">
+    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-8 relative overflow-hidden group hover:border-slate-700 transition-all duration-700 shadow-xl flex flex-col justify-between h-full">
       <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 blur-[120px] pointer-events-none transition-all duration-1000 group-hover:opacity-20" />
       
       <div className="flex items-center justify-between mb-10 relative z-10">
@@ -63,7 +63,7 @@ export default function RecentDrawCard({ draw, loading = false }: RecentDrawCard
         <span className="text-[10px] font-black uppercase tracking-widest text-white/20 italic">{drawDate}</span>
       </div>
 
-      <div className="flex flex-wrap gap-4 mb-12 relative z-10">
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 relative z-10">
         {draw.drawn_numbers.map((num: number, i: number) => (
           <motion.div
             key={i}
@@ -71,7 +71,7 @@ export default function RecentDrawCard({ draw, loading = false }: RecentDrawCard
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: i * 0.1 }}
             className={cn(
-               "w-12 h-12 lg:w-14 lg:h-14 rounded-full border-2 flex items-center justify-center text-lg lg:text-xl font-serif italic shadow-sm transition-all duration-500",
+               "w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center text-base sm:text-xl font-serif italic shadow-sm transition-all duration-500",
                myEntry?.matched_numbers?.includes(num)
                 ? 'bg-accent border-accent text-white shadow-xl shadow-accent/30 scale-110'
                 : 'bg-white/5 border-white/10 text-white/80 group-hover:bg-white group-hover:text-slate-900 group-hover:border-white'

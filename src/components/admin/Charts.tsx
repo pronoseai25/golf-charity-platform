@@ -23,7 +23,7 @@ interface SubscriberChartProps {
 
 export function RevenueChart({ data }: RevenueChartProps) {
   return (
-    <div className="h-[350px] w-full min-h-[350px] animate-in fade-in duration-1000">
+    <div className="w-full h-full animate-in fade-in duration-1000">
       <ResponsiveContainer width="99%" height="100%">
         <BarChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
           <defs>
@@ -78,7 +78,7 @@ export function RevenueChart({ data }: RevenueChartProps) {
 
 export function SubscriberChart({ data }: SubscriberChartProps) {
   return (
-    <div className="h-[350px] w-full min-h-[350px] animate-in fade-in duration-1000">
+    <div className="w-full h-full animate-in fade-in duration-1000">
       <ResponsiveContainer width="99%" height="100%">
         <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
           <defs>

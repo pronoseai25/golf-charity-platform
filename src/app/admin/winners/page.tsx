@@ -108,14 +108,14 @@ export default function WinnersPage() {
   return (
     <div className="space-y-8 pb-12">
       {/* Header section with Stats */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-2">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-2">
         <div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">Winner Verification</h1>
-          <p className="text-slate-500 font-medium">Manage proof submissions and prize payouts for tournament winners.</p>
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">Winner Verification</h1>
+          <p className="text-slate-500 font-medium text-sm sm:text-base">Manage proof submissions and prize payouts for tournament winners.</p>
         </div>
         <button 
           onClick={exportCSV} 
-          className="flex items-center gap-2 px-5 py-3 bg-white border border-slate-200 rounded-2xl text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm"
+          className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white border border-slate-200 rounded-2xl text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm w-full sm:w-auto"
         >
           <Download size={18} />
           Export Queue
@@ -123,7 +123,7 @@ export default function WinnersPage() {
       </div>
 
       {/* Top Row Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
          <StatsCard 
            title="Pending Proof" 
            value={verifications.filter(v => v.status === 'awaiting_proof').length} 

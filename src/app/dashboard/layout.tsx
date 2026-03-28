@@ -212,29 +212,30 @@ export default function DashboardLayout({
         </header>
 
         {/* Dynamic Content Area */}
-        <main className="flex-1 p-6 lg:p-12 pb-32 lg:pb-12 w-full max-w-[1700px] mx-auto animate-in fade-in slide-in-from-bottom-3 duration-1000">
+        <main className="flex-1 p-4 sm:p-6 lg:p-12 pb-28 lg:pb-12 w-full max-w-[1700px] mx-auto animate-in fade-in slide-in-from-bottom-3 duration-1000">
           
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-             <div className="space-y-2">
-                <h1 className="text-4xl md:text-5xl font-serif text-slate-900 tracking-tighter capitalize italic">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-10 gap-4">
+             <div className="space-y-1">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif text-slate-900 tracking-tighter capitalize italic">
                    {formattedTitle}.
                 </h1>
-                <p className="text-slate-400 font-medium text-sm max-w-sm uppercase tracking-widest leading-loose">
+                <p className="text-slate-400 font-medium text-xs sm:text-sm max-w-sm uppercase tracking-widest leading-loose hidden sm:block">
                    A legacy of impact and excellence starts with one swing.
                 </p>
              </div>
              
-             <div className="flex items-center gap-4">
+             <div className="flex items-center gap-3">
                <Link 
                  href="/dashboard/scores" 
-                 className="flex items-center gap-3 bg-slate-900 hover:bg-black text-white px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-slate-200 group"
+                 className="flex items-center gap-2 bg-slate-900 hover:bg-black text-white px-4 sm:px-6 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-slate-200 group"
                >
                  <Plus className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />
-                 New Score
+                 <span className="hidden sm:inline">New Score</span>
+                 <span className="sm:hidden">Score</span>
                </Link>
                <Link 
                  href="/dashboard/charities" 
-                 className="flex items-center gap-3 bg-slate-50 border border-slate-200 hover:border-accent/40 text-slate-600 px-6 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-sm"
+                 className="hidden sm:flex items-center gap-2 bg-slate-50 border border-slate-200 hover:border-accent/40 text-slate-600 px-5 py-3 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-sm"
                >
                  Manage Mission
                </Link>

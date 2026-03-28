@@ -54,23 +54,23 @@ export default function DrawsManagementPage() {
   return (
     <div className="space-y-12 pb-20">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-        <div className="space-y-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+        <div className="space-y-3 flex-1 lg:max-w-2xl">
           <div className="flex items-center gap-3">
-             <div className="p-2.5 bg-indigo-600 rounded-xl text-white shadow-lg shadow-indigo-200">
+             <div className="p-2.5 bg-indigo-600 rounded-xl text-white shadow-lg shadow-indigo-200 shrink-0">
                 <Trophy size={28} />
              </div>
-             <h1 className="text-4xl font-black text-slate-900 tracking-tight font-outfit uppercase">Draw Engine</h1>
+             <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-outfit uppercase">Draw Engine</h1>
           </div>
-          <p className="text-slate-500 font-medium max-w-lg">Execute simulations and manage the monthly lottery lifecycle. All results are immutable once published.</p>
+          <p className="text-slate-500 font-medium text-sm sm:text-base">Execute simulations and manage the monthly lottery lifecycle. All results are immutable once published.</p>
         </div>
-        <div className="flex items-center gap-4 px-6 py-4 bg-white border border-slate-200 rounded-3xl shadow-sm">
-           <div className="flex flex-col text-right">
-              <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Total Lifetime Payouts</p>
+        <div className="flex items-center gap-4 px-6 py-4 bg-white border border-slate-200 rounded-3xl shadow-sm w-full sm:w-auto justify-between sm:justify-start">
+           <div className="flex flex-col text-left sm:text-right">
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest leading-none mb-1">Total Lifetime Payouts</p>
               <p className="text-xl font-black text-indigo-600 leading-none">${(stats.total_lifetime_payouts_pence / 100).toLocaleString()}.00</p>
            </div>
-           <div className="w-px h-10 bg-slate-100"></div>
-           <TrendingUp size={24} className="text-indigo-400" />
+           <div className="w-px h-10 bg-slate-100 hidden sm:block"></div>
+           <TrendingUp size={24} className="text-indigo-400 shrink-0" />
         </div>
       </div>
 
@@ -79,19 +79,20 @@ export default function DrawsManagementPage() {
 
       {/* History List */}
       <div className="space-y-8">
-         <div className="flex items-center justify-between px-4">
-            <h2 className="text-2xl font-black text-slate-900 tracking-tight leading-none uppercase italic border-l-4 border-l-indigo-600 pl-4">Historical Journal</h2>
+         <div className="flex items-center justify-between px-2 sm:px-4">
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none uppercase italic border-l-4 border-l-indigo-600 pl-4">Historical Journal</h2>
             <div className="flex items-center gap-2">
-               <button className="p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
+               <button className="p-2.5 sm:p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
                   <Search size={18} />
                </button>
-               <button className="p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
+               <button className="p-2.5 sm:p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 transition-all">
                   <Filter size={18} />
                </button>
             </div>
          </div>
 
-         <div className="bg-white border border-slate-200 rounded-[3rem] overflow-hidden shadow-sm relative">
+         <div className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-sm relative overflow-x-auto no-scrollbar">
+            <div className="min-w-[900px]">
             {loading ? (
                <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10 flex items-center justify-center min-h-[400px]">
                   <Loader2 className="animate-spin text-indigo-600" size={40} />
@@ -196,6 +197,7 @@ export default function DrawsManagementPage() {
                   </div>
                </div>
             )}
+            </div>
          </div>
       </div>
     </div>

@@ -77,20 +77,20 @@ export default function UsersManagementPage() {
   return (
     <div className="space-y-10 pb-20">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
-        <div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">User Directory</h1>
-          <p className="text-slate-500 font-medium">Manage all platform participants, subscription lifecycles, and roles.</p>
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
+        <div className="flex-1">
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-2">User Directory</h1>
+          <p className="text-slate-500 font-medium text-sm sm:text-base underline-offset-4 decoration-slate-200 decoration-2">Manage all platform participants, subscription lifecycles, and roles.</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
            <button 
              onClick={exportCSV}
-             className="flex items-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-2xl text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm"
+             className="flex items-center justify-center gap-2 px-6 py-4 bg-white border border-slate-200 rounded-2xl text-slate-700 font-bold hover:bg-slate-50 transition-all shadow-sm w-full sm:w-auto"
            >
               <Download size={18} />
               Export Directory
            </button>
-           <button className="flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-black rounded-2xl transition-all shadow-xl hover:bg-indigo-600">
+           <button className="flex items-center justify-center gap-2 px-8 py-4 bg-slate-900 text-white font-black rounded-2xl transition-all shadow-xl hover:bg-indigo-600 w-full sm:w-auto">
               <Plus size={20} />
               Internal Signup
            </button>
@@ -109,14 +109,14 @@ export default function UsersManagementPage() {
               onChange={(e) => { setSearch(e.target.value); setPage(1); }}
             />
          </div>
-         <div className="flex items-center gap-4">
-            <div className="flex bg-slate-50 p-1.5 rounded-2xl">
+         <div className="flex items-center gap-4 w-full md:w-auto overflow-x-auto no-scrollbar pb-1 md:pb-0">
+            <div className="flex bg-slate-50 p-1.5 rounded-2xl min-w-max">
                {['all', 'ADMIN', 'PLAYER'].map((s) => (
                   <button
                     key={s}
                     onClick={() => { setStatus(s); setPage(1); }}
                     className={cn(
-                      "px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all",
+                      "px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all",
                       status === s 
                         ? "bg-white text-indigo-600 shadow-sm border border-slate-100" 
                         : "text-slate-400 hover:text-slate-600"
@@ -130,7 +130,8 @@ export default function UsersManagementPage() {
       </div>
 
       {/* Users Table */}
-      <div className="bg-white border border-slate-200 rounded-[2.5rem] overflow-hidden shadow-sm relative">
+      <div className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden shadow-sm relative overflow-x-auto no-scrollbar">
+         <div className="min-w-[800px]">
          {loading ? (
             <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10 flex items-center justify-center min-h-[400px]">
                <Loader2 className="animate-spin text-indigo-600" size={40} />
@@ -252,6 +253,7 @@ export default function UsersManagementPage() {
                   <ChevronRight size={20} />
                </button>
             </div>
+         </div>
          </div>
       </div>
     </div>

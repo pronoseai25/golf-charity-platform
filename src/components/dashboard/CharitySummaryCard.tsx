@@ -29,7 +29,7 @@ export default function CharitySummaryCard({
   const hasCharities = charities && charities.length > 0;
 
   return (
-    <div className="bg-slate-900 border border-slate-800 rounded-[3rem] p-10 lg:p-14 transition-all duration-700 relative overflow-hidden group shadow-2xl h-full flex flex-col">
+    <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 sm:p-8 transition-all duration-700 relative overflow-hidden group shadow-xl h-full flex flex-col">
       <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 blur-[120px] pointer-events-none transition-all duration-1000 group-hover:opacity-20" />
       
       <div className="flex items-center justify-between mb-12 relative z-10">
@@ -49,7 +49,7 @@ export default function CharitySummaryCard({
           charities.map((item, i) => {
             const amount = (subscriptionAmount * item.allocation_perc) / 100 / 100;
             return (
-              <div key={i} className="bg-white/5 border border-white/10 hover:bg-white hover:border-white rounded-[2rem] p-6 lg:p-8 flex items-center justify-between group/item transition-all duration-500 shadow-sm hover:shadow-2xl hover:shadow-black/20">
+              <div key={i} className="bg-white/5 border border-white/10 hover:bg-white hover:border-white rounded-2xl p-4 sm:p-6 flex items-center justify-between group/item transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-black/20">
                 <div className="flex items-center gap-6">
                   <div className="w-2 h-10 bg-rose-500/20 rounded-full group-hover/item:h-12 group-hover/item:bg-rose-500 transition-all duration-500" />
                   <div>

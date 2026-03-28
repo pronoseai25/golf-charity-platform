@@ -81,10 +81,10 @@ export default function DashboardPage() {
   const latestDraw = data.draws?.[0];
 
   return (
-    <div className="space-y-12 pb-24 lg:pb-0">
+    <div className="space-y-5 sm:space-y-8 pb-10">
       
-      {/* Stat Cards based on image structure */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Stat Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
         <OverviewCard
           loading={loading}
           title="Subscription"
@@ -120,8 +120,8 @@ export default function DashboardPage() {
         />
       </div>
 
-      {/* Main Grid: Asymmetrical as seen in image */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Main Banner - taking 8/12 of the space */}
         <div className="lg:col-span-8">
           <SubscriptionBanner 
@@ -148,19 +148,19 @@ export default function DashboardPage() {
           />
         </div>
 
-        {/* Right Column Section: Performance (Light Mode Redesign) */}
-        <div className="lg:col-span-5 h-full"> 
-            <div className="bg-white border border-slate-100 rounded-[3rem] p-10 lg:p-14 mb-10 transition-all duration-700 relative overflow-hidden group shadow-[0_20px_50px_rgba(0,0,0,0.02)] hover:shadow-2xl hover:shadow-slate-200/50 h-full flex flex-col justify-between">
+        {/* Right Column Section: Performance */}
+        <div className="lg:col-span-5 h-full">
+            <div className="bg-white border border-slate-100 rounded-3xl p-5 sm:p-8 mb-5 transition-all duration-700 relative overflow-hidden group shadow-sm hover:shadow-xl h-full flex flex-col justify-between">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 blur-[120px] pointer-events-none transition-all duration-1000 group-hover:opacity-10" />
                 
-                <div className="flex items-center justify-between mb-12">
+                <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-6">
-                        <div className="p-5 rounded-[1.5rem] bg-slate-50 text-accent border border-slate-100 shadow-sm transition-all group-hover:bg-slate-900 group-hover:text-white">
+                        <div className="p-4 rounded-2xl bg-slate-50 text-accent border border-slate-100 shadow-sm transition-all group-hover:bg-slate-900 group-hover:text-white">
                             <Activity className="w-6 h-6" />
                         </div>
                         <div>
-                            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-2 leading-none italic">Growth Engine</h3>
-                            <h4 className="text-2xl font-serif italic tracking-tighter text-slate-900 leading-none">Recent Round Scores.</h4>
+                            <h3 className="text-[9px] font-black uppercase tracking-[0.4em] text-slate-500 mb-1 leading-none italic">Growth Engine</h3>
+                            <h4 className="text-lg font-serif italic tracking-tighter text-slate-900 leading-none">Recent Round Scores.</h4>
                         </div>
                     </div>
                     <Link 
@@ -171,10 +171,10 @@ export default function DashboardPage() {
                     </Link>
                 </div>
 
-                <div className="space-y-6 flex-1">
+                <div className="space-y-3 flex-1">
                     {data.scores?.length > 0 ? (
                         data.scores.slice(0, 3).map((s: any, i: number) => (
-                            <div key={i} className="bg-slate-50 border border-slate-100 rounded-[2rem] p-6 lg:p-8 flex items-center justify-between hover:bg-white hover:border-slate-200 transition-all duration-500 group/item shadow-sm hover:shadow-xl hover:shadow-slate-100/50">
+                            <div key={i} className="bg-slate-50 border border-slate-100 rounded-2xl p-4 flex items-center justify-between hover:bg-white hover:border-slate-200 transition-all duration-500 group/item shadow-sm">
                                 <div className="flex items-center gap-6">
                                     <div className="w-16 h-16 rounded-2xl bg-white border border-slate-100 flex items-center justify-center text-3xl font-serif italic text-slate-900 group-hover/item:text-accent transition-colors shadow-sm">
                                         {s.score}

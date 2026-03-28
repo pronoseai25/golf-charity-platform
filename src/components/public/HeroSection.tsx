@@ -24,7 +24,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 hero-gradient-overlay" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center py-20">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center py-20 pb-40 md:pb-56">
         
         <motion.div 
             initial={{ opacity: 0, y: 30 }}
@@ -43,9 +43,9 @@ export default function HeroSection() {
           </motion.span>
 
           {/* Large Editorial Headline */}
-          <h1 className="text-6xl md:text-[8rem] font-serif text-white tracking-tighter leading-[0.85] flex flex-col items-center mb-12">
+          <h1 className="text-6xl md:text-[8rem] font-serif text-white tracking-tighter leading-[0.9] flex flex-col items-center justify-center mb-12">
             <span className="block italic text-white/90">Play.</span>
-            <span className="block ml-0 md:ml-48">Win.</span>
+            <span className="block">Win.</span>
             <span className="block italic text-accent muted-gradient">Give Back.</span>
           </h1>
 

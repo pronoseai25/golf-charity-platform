@@ -19,9 +19,9 @@ export default function SubscriptionBanner({
 
   if (loading) {
       return (
-          <div className="bg-white border border-slate-100 rounded-[3rem] p-10 lg:p-14 animate-pulse shadow-sm min-h-[400px]">
-              <div className="h-10 w-64 bg-slate-50 rounded-xl mb-6" />
-              <div className="h-32 bg-slate-50 rounded-2xl" />
+          <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 animate-pulse shadow-sm min-h-[280px]">
+              <div className="h-8 w-48 bg-slate-50 rounded-xl mb-4" />
+              <div className="h-24 bg-slate-50 rounded-2xl" />
           </div>
       );
   }
@@ -49,7 +49,7 @@ export default function SubscriptionBanner({
   };
 
   return (
-    <div className="bg-white border border-slate-100 rounded-[2.5rem] p-8 lg:p-12 relative overflow-hidden group shadow-[0_22px_70px_rgba(0,0,0,0.03)] transition-all duration-1000 h-full flex flex-col justify-center min-h-[380px]">
+    <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-10 relative overflow-hidden group shadow-sm transition-all duration-1000 h-full flex flex-col justify-center min-h-[280px]">
       
       {/* Decorative Accent Glow */}
       <div className={`absolute top-0 right-0 w-[400px] h-[400px] blur-[120px] opacity-[0.05] pointer-events-none transition-all duration-1000 ${isActive ? 'bg-accent' : 'bg-rose-500'}`} />
@@ -67,7 +67,7 @@ export default function SubscriptionBanner({
               {isActive && !isCancelling ? <CheckCircle2 className="w-8 h-8" /> : isCancelling ? <X className="w-8 h-8" /> : <ShieldCheck className="w-8 h-8" />}
             </div>
             <div className="min-w-0">
-              <h2 className="text-3xl md:text-5xl font-serif text-slate-900 italic tracking-tighter leading-none mb-4 truncate">
+              <h2 className="text-2xl sm:text-4xl font-serif text-slate-900 italic tracking-tighter leading-none mb-2 truncate">
                 {isActive ? (isCancelling ? 'Cancellation Pending.' : 'Membership Status.') : 'Enrollment Step.'}
               </h2>
               <p className={cn(
@@ -98,7 +98,7 @@ export default function SubscriptionBanner({
           </div>
         ) : (
           <div className="space-y-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="flex items-center gap-6 bg-slate-50/50 border border-slate-100 rounded-3xl px-6 py-6 shadow-sm hover:bg-white hover:border-slate-200 transition-all group/item">
                     <div className="flex-shrink-0 p-4 rounded-2xl bg-white shadow-sm text-slate-300 group-hover/item:text-accent transition-colors">
                         <Calendar className="w-6 h-6" />

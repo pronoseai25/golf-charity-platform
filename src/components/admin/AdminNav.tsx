@@ -24,7 +24,11 @@ const menuItems = [
   { name: "Reports & Analytics", href: "/admin/reports", icon: BarChart3 },
 ];
 
-export function AdminNav() {
+interface AdminNavProps {
+  onNavClick?: () => void;
+}
+
+export function AdminNav({ onNavClick }: AdminNavProps) {
   const pathname = usePathname();
 
   return (
@@ -35,6 +39,7 @@ export function AdminNav() {
 
         return (
           <Link
+            onClick={onNavClick}
             key={item.href}
             href={item.href}
             className={cn(

@@ -49,9 +49,11 @@ export default function Navbar() {
     <header 
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out",
-        isScrolled 
-          ? "bg-[#050810]/80 backdrop-blur-2xl border-b border-white/5 py-3" 
-          : "bg-transparent py-8"
+        isMobileMenuOpen
+          ? "bg-[#050810] py-4"
+          : isScrolled 
+            ? "bg-[#050810]/95 backdrop-blur-2xl border-b border-white/5 py-3 shadow-xl" 
+            : "bg-transparent py-8"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -135,9 +137,9 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-[#050810] z-40 lg:hidden flex flex-col justify-center p-12"
+            className="fixed inset-0 bg-[#050810] z-40 lg:hidden flex flex-col pt-32 pb-12 px-12 overflow-y-auto"
           >
-            <nav className="flex flex-col gap-8">
+            <nav className="flex flex-col gap-8 my-auto">
               {navLinks.map((link) => (
                 <Link 
                   key={link.href}

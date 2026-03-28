@@ -38,7 +38,7 @@ export default function FeaturedCharities() {
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-24">
           <div className="space-y-6">
             <span className="text-black/40 text-sm font-medium tracking-[0.2em] uppercase block">Causes We Support</span>
-            <h2 className="text-5xl md:text-7xl font-serif max-w-2xl leading-[1.1]">
+            <h2 className="text-5xl md:text-7xl font-serif max-w-2xl leading-[1.1] text-black">
               Connecting players to <br />
               <span className="italic text-black/50">global movements.</span>
             </h2>

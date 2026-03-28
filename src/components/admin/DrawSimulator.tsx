@@ -77,23 +77,23 @@ export function DrawSimulator() {
   return (
     <div className="space-y-10">
       {/* Simulation Engine Controls */}
-      <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm relative overflow-hidden group">
+      <div className="bg-white border border-slate-200 rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 shadow-sm relative overflow-hidden group">
          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-50/50 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-all duration-700"></div>
          
-         <div className="relative z-10 flex flex-col md:flex-row gap-10">
+         <div className="relative z-10 flex flex-col xl:flex-row gap-8 sm:gap-10">
             {/* Main Config */}
-            <div className="flex-1 space-y-8">
+            <div className="flex-1 space-y-6 sm:space-y-8">
                <div className="flex items-center gap-4">
-                  <div className="p-4 bg-slate-900 rounded-2xl text-white shadow-xl shadow-slate-200">
+                  <div className="p-3 sm:p-4 bg-slate-900 rounded-2xl text-white shadow-xl shadow-slate-200">
                      <Settings size={28} />
                   </div>
                   <div>
-                     <h3 className="text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">Lottery Generator</h3>
+                     <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none mb-1">Lottery Generator</h3>
                      <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Configure & Run Predictions</p>
                   </div>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                   <div className="space-y-3">
                      <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1 flex items-center gap-2">
                         <Calendar size={12} />
@@ -101,7 +101,7 @@ export function DrawSimulator() {
                      </label>
                      <input 
                         type="date"
-                        className="w-full p-5 bg-slate-50 border-none rounded-3xl text-sm font-black focus:ring-2 focus:ring-indigo-500 outline-none transition-all shadow-inner"
+                        className="w-full p-4 sm:p-5 bg-slate-50 border-none rounded-2xl sm:rounded-3xl text-sm font-black focus:ring-2 focus:ring-indigo-500 outline-none transition-all shadow-inner"
                         value={drawDate}
                         onChange={(e) => setDrawDate(e.target.value)}
                      />
@@ -111,13 +111,13 @@ export function DrawSimulator() {
                         <Layers size={12} />
                         Engine Logic
                      </label>
-                     <div className="flex bg-slate-50 p-1.5 rounded-3xl border border-slate-100">
+                     <div className="flex flex-col sm:flex-row bg-slate-50 p-1.5 rounded-2xl sm:rounded-3xl border border-slate-100 gap-1 sm:gap-0">
                         {modes.map(mode => (
                            <button 
                              key={mode.id}
                              onClick={() => setDrawMode(mode.id)}
                              className={cn(
-                                "flex-1 px-4 py-3.5 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all",
+                                "px-4 py-3 rounded-xl sm:rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all",
                                 drawMode === mode.id ? "bg-white text-indigo-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"
                              )}
                            >
@@ -135,21 +135,21 @@ export function DrawSimulator() {
                <button 
                   onClick={runSimulation}
                   disabled={loading}
-                  className="w-full py-6 bg-slate-900 hover:bg-indigo-600 text-white text-base font-black rounded-[2rem] transition-all shadow-2xl shadow-indigo-100 flex items-center justify-center gap-3 group disabled:opacity-50"
+                  className="w-full py-5 sm:py-6 bg-slate-900 hover:bg-indigo-600 text-white text-base font-black rounded-2xl sm:rounded-[2rem] transition-all shadow-2xl shadow-indigo-100 flex items-center justify-center gap-3 group disabled:opacity-50"
                >
                   {loading ? (
                      <Loader2 size={24} className="animate-spin" />
                   ) : (
                      <>
                         <PlayCircle size={24} className="group-hover:translate-x-1 group-hover:rotate-12 transition-transform" />
-                        Execute Calculation Engine
+                        Execute Engine
                      </>
                   )}
                </button>
             </div>
 
             {/* Results Preview (Sidebar style or inline) */}
-            <div className="w-full md:w-80 lg:w-96 shrink-0 flex flex-col items-center justify-center bg-indigo-50/50 rounded-[2.5rem] p-10 min-h-[400px] border border-indigo-100/50">
+            <div className="w-full xl:w-80 lg:w-96 shrink-0 flex flex-col items-center justify-center bg-indigo-50/50 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 min-h-[350px] sm:min-h-[400px] border border-indigo-100/50">
                {!simulation ? (
                   <div className="flex flex-col items-center text-center space-y-6">
                      <div className="w-24 h-24 bg-white/50 backdrop-blur shadow-xl rounded-[2rem] flex items-center justify-center text-slate-200 border border-white">

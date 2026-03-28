@@ -89,16 +89,16 @@ export default function CharityManagementPage() {
   return (
     <div className="space-y-10 pb-20">
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-black text-slate-900 tracking-tight mb-2">Charity Management</h1>
-          <p className="text-slate-500 font-medium max-w-lg">Manage platform causes, branding, and visibility logic. All partnerships are visible to users.</p>
+          <h1 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight mb-1">Charity Management</h1>
+          <p className="text-slate-500 font-medium text-sm max-w-lg hidden sm:block">Manage platform causes, branding, and visibility logic.</p>
         </div>
         <button 
           onClick={() => { setSelectedCharity(undefined); setShowForm(true); }}
-          className="flex items-center gap-3 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-2xl transition-all shadow-xl shadow-indigo-200"
+          className="flex items-center gap-2 px-5 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-black rounded-xl transition-all shadow-lg shadow-indigo-200 text-sm shrink-0"
         >
-          <Plus size={20} />
+          <Plus size={16} />
           Register Charity
         </button>
       </div>

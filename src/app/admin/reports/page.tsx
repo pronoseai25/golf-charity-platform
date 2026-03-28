@@ -101,9 +101,9 @@ export default function ReportsPage() {
   if (!data) return <div>Failed to load analytics</div>;
 
   return (
-    <div className="space-y-12 pb-20">
+    <div className="space-y-6 sm:space-y-10 pb-20">
       {/* Analytics Header & Control */}
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
         <div>
           <div className="flex items-center gap-3 mb-2">
              <div className="p-2.5 bg-indigo-600 rounded-xl text-white shadow-lg shadow-indigo-200">
@@ -113,7 +113,7 @@ export default function ReportsPage() {
           </div>
           <p className="text-slate-500 font-medium">Deep-dive into platform performance, user behavioral patterns, and charity impact metrics.</p>
         </div>
-        <div className="flex items-center gap-3 bg-white border border-slate-200 p-2.5 rounded-3xl shadow-sm">
+        <div className="flex flex-wrap items-center gap-2 bg-white border border-slate-200 p-2 rounded-2xl shadow-sm">
            <div className="flex bg-slate-50 p-1.5 rounded-2xl gap-1">
               {[
                 { id: 'last_month', label: 'Last 30D' },
@@ -142,8 +142,8 @@ export default function ReportsPage() {
       </div>
 
       {/* Grid: Financial & User Charts */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-         <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm relative overflow-hidden group">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+         <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm relative overflow-hidden group">
             <div className="flex items-center justify-between mb-10">
                <div>
                   <h3 className="text-xl font-black text-slate-900 tracking-tight leading-none mb-1">Financial Trajectory</h3>
@@ -155,7 +155,7 @@ export default function ReportsPage() {
                </div>
             </div>
             
-            <div className="h-[300px] w-full">
+            <div className="h-[220px] sm:h-[280px] w-full">
                <ResponsiveContainer width="99%" height="100%">
                   <AreaChart data={data.monthly_revenue} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                      <defs>
@@ -186,7 +186,7 @@ export default function ReportsPage() {
             </div>
          </div>
 
-         <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm group">
+         <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm group">
             <div className="flex items-center justify-between mb-10">
                <div>
                   <h3 className="text-xl font-black text-slate-900 tracking-tight leading-none mb-1">Subscriber Accumulation</h3>
@@ -194,7 +194,7 @@ export default function ReportsPage() {
                </div>
             </div>
 
-            <div className="h-[300px] w-full">
+            <div className="h-[220px] sm:h-[280px] w-full">
                <ResponsiveContainer width="99%" height="100%">
                   <BarChart data={data.monthly_revenue} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
@@ -209,7 +209,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Score Histogram Column */}
-      <div className="bg-slate-900 border border-slate-800 rounded-[3.5rem] p-12 text-white relative overflow-hidden group">
+      <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 text-white relative overflow-hidden group">
          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 blur-[130px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
          
          <div className="relative z-10 space-y-10">
@@ -227,7 +227,7 @@ export default function ReportsPage() {
                </div>
             </div>
 
-            <div className="h-[350px] w-full">
+            <div className="h-[240px] sm:h-[320px] w-full">
                <ResponsiveContainer width="99%" height="100%">
                   <BarChart data={data.score_distribution} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                      <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#ffffff10" />
@@ -260,8 +260,8 @@ export default function ReportsPage() {
       </div>
 
       {/* Bottom Row Tables: Charity Supporter & Draw History */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-         <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm h-full flex flex-col">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+         <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm h-full flex flex-col">
             <div className="flex items-center justify-between mb-8">
                <h4 className="text-xl font-black text-slate-900 leading-none uppercase tracking-tight">Charity Supporter Matrix</h4>
                <Heart className="text-rose-400" size={24} />
@@ -269,17 +269,17 @@ export default function ReportsPage() {
             <div className="space-y-4">
                {data.charity_contributions.length > 0 ? (
                   data.charity_contributions.map((c, i) => (
-                     <div key={i} className="flex items-center justify-between p-5 bg-slate-50 border border-slate-50 rounded-3xl hover:bg-white hover:border-slate-100 transition-all hover:shadow-xl group">
-                        <div className="flex items-center gap-4">
-                           <div className="w-10 h-10 rounded-xl bg-white border border-slate-100 flex items-center justify-center font-black text-slate-900 shadow-sm relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                     <div key={i} className="flex items-center justify-between p-5 bg-slate-50 border border-slate-50 rounded-2xl hover:bg-white hover:border-slate-100 transition-all hover:shadow-md group gap-2">
+                        <div className="flex items-center gap-3 min-w-0">
+                           <div className="w-9 h-9 shrink-0 rounded-xl bg-white border border-slate-100 flex items-center justify-center font-black text-slate-900 shadow-sm">
                               {c.charity_name.charAt(0)}
                            </div>
                            <div>
-                              <p className="text-sm font-black text-slate-900 leading-none mb-1 group-hover:text-indigo-600 transition-colors">{c.charity_name}</p>
+                              <p className="text-sm font-black text-slate-900 leading-none mb-1 truncate group-hover:text-indigo-600 transition-colors">{c.charity_name}</p>
                               <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{c.supporter_count} Active Patrons</p>
                            </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-right shrink-0">
                            <p className="text-lg font-black text-slate-900">${(c.total_pence / 100).toLocaleString()}</p>
                            <p className="text-[10px] font-black text-rose-500 uppercase tracking-widest font-mono">Total Fund Value</p>
                         </div>
@@ -294,7 +294,7 @@ export default function ReportsPage() {
             </div>
          </div>
 
-         <div className="bg-white border border-slate-200 rounded-[3rem] p-10 shadow-sm h-full flex flex-col">
+         <div className="bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm h-full flex flex-col">
             <div className="flex items-center justify-between mb-8">
                <h4 className="text-xl font-black text-slate-900 leading-none uppercase tracking-tight">Lottery Performance Log</h4>
                <Trophy className="text-amber-500" size={24} />
@@ -312,7 +312,7 @@ export default function ReportsPage() {
                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{d.total_winners} Distributed Prizes</span>
                         </div>
                      </div>
-                     <div className="text-right">
+                     <div className="text-right shrink-0">
                         <p className="text-lg font-black text-slate-900">${(d.total_distributed_pence / 100).toLocaleString()}</p>
                         <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest font-mono">Prize Pool Value</p>
                      </div>
